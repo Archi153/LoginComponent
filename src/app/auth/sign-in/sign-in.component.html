@@ -1,0 +1,30 @@
+<div class="container">
+
+    <form [formGroup]="SignInForm">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="text" formControlName="email">
+      </mat-form-field>
+      <ng-container *ngIf="email.dirty || email.touched">
+        <mat-error *ngIf="email.hasError('required')">Email is required</mat-error>
+        <mat-error *ngIf="email.hasError('email')">Email has wrong format</mat-error>
+      </ng-container>
+  
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+      <ng-container *ngIf="password.dirty || password.touched">
+        <mat-error *ngIf="email.hasError('required')">Password is required</mat-error>
+      </ng-container>
+  
+      
+    </form>
+  
+    <button mat-button (click)="signin()" [disabled]="SignInForm.invalid">Sign in</button>
+  
+  </div>
+  
+  
+  
+  

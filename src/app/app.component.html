@@ -1,0 +1,23 @@
+<mat-sidenav-container>
+  <mat-sidenav [opened]="authService.isAuthorized" mode="side">
+    <mat-nav-list>
+      <a mat-list-item routerLink="secure-page" routerLinkActive="mat-mdc-list-item-active" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>lock_open</mat-icon>
+        <p class="text">Secure Page</p>
+      </a>
+      <a mat-list-item routerLink="another-secure-page" routerLinkActive="mat-mdc-list-item-active" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>lock_open</mat-icon>
+        <p class="text">Another Secure Page</p>
+      </a>
+    </mat-nav-list>
+    <mat-action-list>
+      <button mat-list-item (click)="authService.logout()" routerLinkActive="mat-mdc-list-item-active" [routerLinkActiveOptions]="{exact: true}"routerLinkActive="mat-mdc-list-item-active" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>logout</mat-icon>
+        <p class="text">Logout</p>
+      </button>
+    </mat-action-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

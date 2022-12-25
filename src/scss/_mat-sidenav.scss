@@ -1,0 +1,84 @@
+﻿@use 'theme/colors';
+@use 'theme/typography';
+
+
+
+
+.mat-sidenav-container {
+  flex-grow: 1;
+  background-color: inherit;
+  color: inherit;
+}
+
+.mat-sidenav {
+  padding: 12px;
+  width: 360px;
+  border: none;
+  background-color: colors.surface();
+  color: colors.on-surface-variant();
+}
+.mat-mdc-list-base {
+  display: flex !important;
+  flex-direction: column;
+  gap:10px;
+}
+.mat-mdc-list-item {
+  height: 56px !important;
+  padding-inline: 16px 24px !important;
+  border-radius: 28px;
+
+  .mat-mdc-list-item-unscoped-content {
+    @include typography.label-large;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    color: inherit;
+  }
+
+  &.mat-mdc-list-item-active {
+    background-color: colors.secondary-container();
+    color: colors.on-secondary-container();
+    --symbol-fill: 1;
+  }
+
+  &.mat-mdc-list-item-interactive::before {
+    background-color: currentColor;
+  }
+
+  &.mat-mdc-list-item-interactive:not(:focus):not(.mdc-list-item--disabled):hover::before {
+    opacity: .08;
+  }
+}
+@media screen and (max-width:1250px) {
+  .mat-drawer.mat-sidenav.ng-tns-c52-0.ng-trigger.ng-trigger-transform.mat-drawer-side.ng-star-inserted{
+    visibility: visible !important;
+  }
+
+  .mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-primary.mat-mdc-button-base{
+    display: none;
+
+  }
+  .mat-drawer-inner-container{
+    width: none !important;
+  }
+  .mat-nav-list{
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  .text{
+    display:none;
+    width: 0;
+    height: 0;
+  }
+  .mat-sidenav {
+    width: 80px !important;
+  }
+  .mat-mdc-list-item {
+    justify-content: center;
+    height: 56px !important;
+    width: 53px;
+    padding-inline:15px  12px !important;
+    border-radius: 20px !important;
+  } 
+}
